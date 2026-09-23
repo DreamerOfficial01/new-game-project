@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_3aeeq")
+pickup_mode = 1
 item_name = "Berry"
 icon = ExtResource("1_yqhj1")
 is_stackable = true

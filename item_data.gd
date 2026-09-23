@@ -1,7 +1,9 @@
 extends Resource
 class_name ItemData
-
+enum PickupMode { MANUAL, AUTO, BOTH }
+@export var pickup_mode: PickupMode = PickupMode.AUTO
 enum Rarity { COMMON, UNCOMMON, RARE, EPIC, LEGENDARY }
+
 
 @export var item_name: String = "New Item"
 @export var icon: Texture2D

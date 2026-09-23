@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_cq8ic")
+pickup_mode = 0
 item_name = "Wood Log"
 icon = ExtResource("1_udmto")
 is_stackable = true

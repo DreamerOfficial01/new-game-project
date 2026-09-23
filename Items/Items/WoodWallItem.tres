@@ -12,6 +12,7 @@ metadata/_custom_type_script = "uid://bwrtw6jdc6xvf"
 
 [resource]
 script = ExtResource("1_622fo")
+pickup_mode = 0
 item_name = "WoodWallItem"
 icon = ExtResource("1_gt5oa")
 placeable_data = SubResource("Resource_rk28n")

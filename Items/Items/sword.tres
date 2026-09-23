@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_n0iq6")
+pickup_mode = 0
 item_name = "IronSowrd"
 icon = ExtResource("1_wghkx")
 rarity = 3

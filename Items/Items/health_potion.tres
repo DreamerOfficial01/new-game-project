@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_e7stj")
+pickup_mode = 1
 item_name = "Health Potion"
 icon = ExtResource("1_lt6l7")
 rarity = 1

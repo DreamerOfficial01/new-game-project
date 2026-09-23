@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" format=3 uid="uid://duo76ihf3e7o"]
+
+[ext_resource type="Script" uid="uid://hw8y3jxvnfuc" path="res://Items/recipe_ingredient.gd" id="1_3t6fl"]
+[ext_resource type="Resource" uid="uid://dr5lssjvj5kik" path="res://Items/Items/berry.tres" id="2_767lp"]
+[ext_resource type="Script" uid="uid://7smydrd8dwnf" path="res://Items/crafting_recipe.gd" id="2_vljyp"]
+[ext_resource type="Resource" uid="uid://bny4p2qv6qvyb" path="res://Items/Items/axe.tres" id="3_x3jbr"]
+
+[sub_resource type="Resource" id="Resource_x3jbr"]
+script = ExtResource("1_3t6fl")
+item = ExtResource("2_767lp")
+amount = 3
+metadata/_custom_type_script = "uid://hw8y3jxvnfuc"
+
+[resource]
+script = ExtResource("2_vljyp")
+recipe_name = "Axe"
+category = 2
+output_item = ExtResource("3_x3jbr")
+ingredients = Array[ExtResource("1_3t6fl")]([SubResource("Resource_x3jbr")])
+crafting_time = 5.0
+required_stations = Array[String](["workbench"])
+metadata/_custom_type_script = "uid://7smydrd8dwnf"

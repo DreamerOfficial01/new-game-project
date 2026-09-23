@@ -21,10 +21,11 @@ max_quantity = 2
 drop_chance = 10.0
 metadata/_custom_type_script = "uid://bhrxnfsykmgnh"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_45t4r"]
-size = Vector2(21, 17)
+[sub_resource type="CircleShape2D" id="CircleShape2D_nesqh"]
+radius = 7.2900476
 
 [node name="Tree" type="StaticBody2D" unique_id=1557699403]
+y_sort_enabled = true
 script = ExtResource("1_nbyt5")
 drops = Array[ExtResource("2_4nadt")]([SubResource("Resource_dn7q5"), SubResource("Resource_udmto")])
 healthy_texture = ExtResource("5_nesqh")
@@ -32,8 +33,13 @@ depleted_texture = ExtResource("6_b1xy4")
 metadata/_custom_type_script = "uid://c7i8qqv1tdyd7"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=910467754]
+y_sort_enabled = true
+position = Vector2(0, -16)
 texture = ExtResource("5_nesqh")
+offset = Vector2(0, -15.74)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=531359693]
-position = Vector2(-2.5, 27.5)
-shape = SubResource("RectangleShape2D_45t4r")
+y_sort_enabled = true
+position = Vector2(-1.9999999, -1)
+scale = Vector2(-0.9602132, 0.30232558)
+shape = SubResource("CircleShape2D_nesqh")

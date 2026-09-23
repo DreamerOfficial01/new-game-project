@@ -331,12 +331,7 @@ radius = 135.25
 
 [node name="Node2D" type="Node2D" unique_id=1020872739]
 y_sort_enabled = true
-
-[node name="InteractionProgress" type="TextureProgressBar" parent="." unique_id=335071728]
-offset_left = -80.0
-offset_top = 1.0
-offset_right = 80.0
-offset_bottom = 19.0
+position = Vector2(1, 0)
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=118804128]
 y_sort_enabled = true
@@ -369,18 +364,37 @@ z_index = 10
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GhostPreview/Area2D" unique_id=328194919]
 shape = SubResource("RectangleShape2D_kgtat")
 
+[node name="InteractionArea" type="Area2D" parent="Player" unique_id=1568830206]
+scale = Vector2(0.16666667, 0.16666667)
+script = ExtResource("10_hqns4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/InteractionArea" unique_id=1801808259]
+scale = Vector2(1.0055249, 1)
+shape = SubResource("CircleShape2D_kgtat")
+
+[node name="PlacementController" type="Node2D" parent="Player" unique_id=1506242277]
+scale = Vector2(0.16666667, 0.16666667)
+script = ExtResource("11_hqns4")
+
+[node name="InteractionProgress" type="ProgressBar" parent="Player" unique_id=1881245205]
+modulate = Color(0, 0, 1, 1)
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.999996
+offset_top = -43.333324
+offset_right = -3.1280785
+offset_bottom = -21.864819
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.6100001, 0.44822925)
+show_percentage = false
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1749457995]
 
 [node name="InventoryUI" parent="CanvasLayer" unique_id=876524868 instance=ExtResource("9_4d7sh")]
 
 [node name="CraftingUI" parent="CanvasLayer" unique_id=809909547 instance=ExtResource("10_ir8iy")]
-
-[node name="InteractionArea" type="Area2D" parent="." unique_id=1568830206]
-script = ExtResource("10_hqns4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1801808259]
-scale = Vector2(1.0055249, 1)
-shape = SubResource("CircleShape2D_kgtat")
-
-[node name="PlacementController" type="Node2D" parent="." unique_id=1506242277]
-script = ExtResource("11_hqns4")

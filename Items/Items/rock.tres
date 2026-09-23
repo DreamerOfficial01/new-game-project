@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_d3gug")
+pickup_mode = 1
 item_name = "Rock"
 icon = ExtResource("1_5q311")
 is_stackable = true

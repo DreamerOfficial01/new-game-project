@@ -28,3 +28,23 @@ position = Vector2(-463, -595)
 
 [node name="BerryBush" parent="Entities" unique_id=295933568 instance=ExtResource("4_ctaxi")]
 position = Vector2(275, -777)
+
+[node name="Tree2" parent="Entities" unique_id=1713297354 instance=ExtResource("2_45t4r")]
+position = Vector2(1018, -512)
+scale = Vector2(6, 6)
+
+[node name="Tree3" parent="Entities" unique_id=253681756 instance=ExtResource("2_45t4r")]
+position = Vector2(1069, -334)
+scale = Vector2(6, 6)
+
+[node name="Tree4" parent="Entities" unique_id=1969095655 instance=ExtResource("2_45t4r")]
+position = Vector2(-421, -1207.0001)
+scale = Vector2(6, 6)
+
+[node name="Tree5" parent="Entities" unique_id=1396955352 instance=ExtResource("2_45t4r")]
+position = Vector2(-211, -1305)
+scale = Vector2(6, 6)
+
+[node name="Tree6" parent="Entities" unique_id=1294484721 instance=ExtResource("2_45t4r")]
+position = Vector2(-149, -1149)
+scale = Vector2(6, 6)
