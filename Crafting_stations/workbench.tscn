@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dluf13t7eaj7p"]
+
+[ext_resource type="Script" uid="uid://bh3ibhyq3226y" path="res://Crafting_stations/crafting_station.gd" id="1_3detd"]
+[ext_resource type="Texture2D" uid="uid://cswa7qxokbqkr" path="res://workbench.png" id="2_400hb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgtat"]
+size = Vector2(265.5, 96)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_abukt"]
+radius = 167.01198
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgtat"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abukt"]
+bg_color = Color(0, 0, 0, 0.5882353)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1531188856]
+script = ExtResource("1_3detd")
+station_type = "workbench"
+station_name = "Sword Station"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=453393223]
+position = Vector2(2, 83)
+shape = SubResource("RectangleShape2D_kgtat")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1589277466]
+texture = ExtResource("2_400hb")
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=2024662767]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=283981921]
+shape = SubResource("CircleShape2D_abukt")
+
+[node name="PromptLabel" type="Label" parent="." unique_id=848238910]
+offset_left = -17.0
+offset_top = -195.0
+offset_right = 23.0
+offset_bottom = -168.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kgtat")
+text = "E"
+horizontal_alignment = 1
+
+[node name="FinishedIcon" type="Sprite2D" parent="." unique_id=70513322]
+position = Vector2(0, -181)
+scale = Vector2(0.16, 0.16)
+
+[node name="IconBackground" type="Panel" parent="FinishedIcon" unique_id=417817840]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_abukt")
+
+[node name="CraftTimer" type="Timer" parent="." unique_id=2027830389]
+one_shot = true

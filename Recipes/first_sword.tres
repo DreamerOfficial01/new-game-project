@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" format=3 uid="uid://bc7p8dwrim1sk"]
+
+[ext_resource type="Script" uid="uid://hw8y3jxvnfuc" path="res://Items/recipe_ingredient.gd" id="1_88rp1"]
+[ext_resource type="Resource" uid="uid://cwd866xpfl5pv" path="res://Items/Items/apple.tres" id="2_5851w"]
+[ext_resource type="Resource" uid="uid://c2rbcwukfdb0s" path="res://Items/Items/sword.tres" id="3_vkhwu"]
+[ext_resource type="Script" uid="uid://7smydrd8dwnf" path="res://Items/crafting_recipe.gd" id="4_81rjs"]
+
+[sub_resource type="Resource" id="Resource_f63hw"]
+script = ExtResource("1_88rp1")
+item = ExtResource("2_5851w")
+amount = 3
+metadata/_custom_type_script = "uid://hw8y3jxvnfuc"
+
+[sub_resource type="Resource" id="Resource_yupy5"]
+script = ExtResource("1_88rp1")
+item = ExtResource("2_5851w")
+metadata/_custom_type_script = "uid://hw8y3jxvnfuc"
+
+[resource]
+script = ExtResource("4_81rjs")
+recipe_name = "Sword"
+category = 1
+output_item = ExtResource("3_vkhwu")
+ingredients = Array[ExtResource("1_88rp1")]([SubResource("Resource_f63hw"), SubResource("Resource_yupy5")])
+crafting_time = 10.0
+required_stations = Array[String](["workbench"])
+metadata/_custom_type_script = "uid://7smydrd8dwnf"

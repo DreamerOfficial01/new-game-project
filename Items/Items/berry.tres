@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dr5lssjvj5kik"]
+
+[ext_resource type="Script" uid="uid://bwma4r5m2phul" path="res://item_data.gd" id="1_3aeeq"]
+[ext_resource type="Texture2D" uid="uid://dn60hofy736xk" path="res://Items/Items/berry.png" id="1_yqhj1"]
+
+[resource]
+script = ExtResource("1_3aeeq")
+item_name = "Berry"
+icon = ExtResource("1_yqhj1")
+is_stackable = true
+max_stack = 10
+can_use = true
+buff_amount = 5.0
+metadata/_custom_type_script = "uid://bwma4r5m2phul"

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c6j5yf3ofam83"]
+
+[node name="GhostPreview" type="Area2D" unique_id=1426086312]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1670763168]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=1315756571]

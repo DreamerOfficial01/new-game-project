@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://lgw85o7ei737"]
+
+[ext_resource type="Script" uid="uid://cdujnoh277evu" path="res://Items/CraftingUI.gd" id="1_yupy5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir8iy"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.38615498, 0.18102995, 0.11023458, 1)
+
+[node name="CraftingUI" type="Control" unique_id=809909547]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yupy5")
+
+[node name="Background" type="Panel" parent="." unique_id=1563146555]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.15
+anchor_right = 0.85
+anchor_bottom = 0.85
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0094073, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ir8iy")
+
+[node name="MainLayout" type="HBoxContainer" parent="Background" unique_id=1771185226]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="LeftSide" type="VBoxContainer" parent="Background/MainLayout" unique_id=1237657]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CategoryTabs" type="HBoxContainer" parent="Background/MainLayout/LeftSide" unique_id=1212891411]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/MainLayout/LeftSide" unique_id=1564503960]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RecipeGrid" type="GridContainer" parent="Background/MainLayout/LeftSide/ScrollContainer" unique_id=210007479]
+layout_mode = 2
+columns = 5
+
+[node name="RightSideDetails" type="VBoxContainer" parent="Background/MainLayout" unique_id=1114609742]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RecipeName" type="Label" parent="Background/MainLayout/RightSideDetails" unique_id=1029133487]
+layout_mode = 2
+
+[node name="IngredientsList" type="HBoxContainer" parent="Background/MainLayout/RightSideDetails" unique_id=1471242129]
+layout_mode = 2
+
+[node name="AmountSlider" type="HSlider" parent="Background/MainLayout/RightSideDetails" unique_id=332370901]
+layout_mode = 2
+
+[node name="AmountLabel" type="Label" parent="Background/MainLayout/RightSideDetails" unique_id=433303238]
+layout_mode = 2
+
+[node name="CraftButton" type="Button" parent="Background/MainLayout/RightSideDetails" unique_id=1804586438]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HandCraftProgressBar" type="ProgressBar" parent="Background/MainLayout/RightSideDetails" unique_id=1228566941]
+visible = false
+layout_mode = 2
+
+[node name="CollectButton" type="Button" parent="Background/MainLayout/RightSideDetails" unique_id=163772564]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="StopButton" type="Button" parent="Background/MainLayout/RightSideDetails" unique_id=1084865228]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="RefundButton" type="Button" parent="Background/MainLayout/RightSideDetails" unique_id=1461312903]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2

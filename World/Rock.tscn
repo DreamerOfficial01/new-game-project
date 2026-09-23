@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c8lda2vcmweq6"]
+
+[ext_resource type="Script" uid="uid://c7i8qqv1tdyd7" path="res://world_resource.gd" id="1_dxxa3"]
+[ext_resource type="Script" uid="uid://bhrxnfsykmgnh" path="res://DataComponents/drop_data.gd" id="2_n86el"]
+[ext_resource type="Resource" uid="uid://de3a74obe5rvg" path="res://Items/Items/rock.tres" id="3_vshgn"]
+[ext_resource type="Texture2D" uid="uid://cgy8wgt51k3ro" path="res://World/Boulder.webp" id="4_kgw42"]
+
+[sub_resource type="Resource" id="Resource_5q311"]
+script = ExtResource("2_n86el")
+item = ExtResource("3_vshgn")
+min_quantity = 2
+max_quantity = 4
+metadata/_custom_type_script = "uid://bhrxnfsykmgnh"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqns4"]
+size = Vector2(337.5, 81.25)
+
+[node name="Rock" type="StaticBody2D" unique_id=518972216]
+script = ExtResource("1_dxxa3")
+resource_name = "Rock"
+resistance = 25
+accepted_tool_types = Array[String](["Pickaxe"])
+drops = Array[ExtResource("2_n86el")]([SubResource("Resource_5q311")])
+healthy_texture = ExtResource("4_kgw42")
+destroy_on_depleted = true
+metadata/_custom_type_script = "uid://c7i8qqv1tdyd7"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1055864522]
+scale = Vector2(0.48000002, 0.48000002)
+texture = ExtResource("4_kgw42")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=519220410]
+position = Vector2(-2, 50.5)
+scale = Vector2(0.48000002, 0.48000002)
+shape = SubResource("RectangleShape2D_hqns4")

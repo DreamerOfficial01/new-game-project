@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bp1ojfia5c1jm"]
+
+[ext_resource type="Script" uid="uid://dfbj2xweb0ews" path="res://inventory_slot.gd" id="1_42eed"]
+
+[sub_resource type="FontVariation" id="FontVariation_42eed"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_42eed"]
+font = SubResource("FontVariation_42eed")
+font_color = Color(0.37254903, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgtat"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[node name="InventorySlot" type="Control" unique_id=821748490]
+custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1088.0
+offset_bottom = -584.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_42eed")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1210143312]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemIcon" type="TextureRect" parent="." unique_id=653337528]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemCount" type="Label" parent="." unique_id=812964671]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_42eed")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Highlight" type="Panel" parent="." unique_id=562983654]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kgtat")

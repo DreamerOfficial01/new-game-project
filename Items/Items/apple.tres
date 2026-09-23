@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cwd866xpfl5pv"]
+
+[ext_resource type="Texture2D" uid="uid://bg76373a46elg" path="res://Items/Items/apple.png" id="1_qgw04"]
+[ext_resource type="Script" uid="uid://bwma4r5m2phul" path="res://item_data.gd" id="2_07t43"]
+
+[resource]
+script = ExtResource("2_07t43")
+item_name = "Apple"
+icon = ExtResource("1_qgw04")
+drop_chance = 70.0
+is_stackable = true
+max_stack = 5
+can_use = true
+metadata/_custom_type_script = "uid://bwma4r5m2phul"

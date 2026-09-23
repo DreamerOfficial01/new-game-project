@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d1vsmo3rtohap"]
+
+[ext_resource type="Script" uid="uid://bwma4r5m2phul" path="res://item_data.gd" id="1_622fo"]
+[ext_resource type="Texture2D" uid="uid://dgcy30cqm2j0e" path="res://Items/Items/woodblock.png" id="1_gt5oa"]
+[ext_resource type="PackedScene" uid="uid://bjty841obc843" path="res://World/WoodWall.tscn" id="2_lt6ig"]
+[ext_resource type="Script" uid="uid://bwrtw6jdc6xvf" path="res://DataComponents/placeable_data.gd" id="3_766ab"]
+
+[sub_resource type="Resource" id="Resource_rk28n"]
+script = ExtResource("3_766ab")
+scene_to_spawn = ExtResource("2_lt6ig")
+metadata/_custom_type_script = "uid://bwrtw6jdc6xvf"
+
+[resource]
+script = ExtResource("1_622fo")
+item_name = "WoodWallItem"
+icon = ExtResource("1_gt5oa")
+placeable_data = SubResource("Resource_rk28n")
+metadata/_custom_type_script = "uid://bwma4r5m2phul"

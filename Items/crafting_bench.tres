@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://tpciaexxw46w"]
+
+[ext_resource type="Texture2D" uid="uid://cswa7qxokbqkr" path="res://workbench.png" id="1_3fwcd"]
+[ext_resource type="PackedScene" uid="uid://dluf13t7eaj7p" path="res://Crafting_stations/workbench.tscn" id="2_x8qn3"]
+[ext_resource type="Script" uid="uid://bwma4r5m2phul" path="res://item_data.gd" id="3_ejudw"]
+
+[resource]
+script = ExtResource("3_ejudw")
+item_name = "Crafting Bench"
+icon = ExtResource("1_3fwcd")
+drop_chance = 0.0
+is_placeable = true
+placeable_scene = ExtResource("2_x8qn3")
+metadata/_custom_type_script = "uid://bwma4r5m2phul"

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cl5eaekxll7ek"]
+
+[ext_resource type="Script" uid="uid://c7i8qqv1tdyd7" path="res://world_resource.gd" id="1_nbyt5"]
+[ext_resource type="Script" uid="uid://bhrxnfsykmgnh" path="res://DataComponents/drop_data.gd" id="2_4nadt"]
+[ext_resource type="Resource" uid="uid://qt617toq1ypu" path="res://Items/Items/wood_log.tres" id="3_figow"]
+[ext_resource type="Resource" uid="uid://cwd866xpfl5pv" path="res://Items/Items/apple.tres" id="4_atuec"]
+[ext_resource type="Texture2D" uid="uid://c2x0k86ad0252" path="res://World/TREE 8_GREEN.png" id="5_nesqh"]
+[ext_resource type="Texture2D" uid="uid://bg8sg1f3yu2k0" path="res://World/TREE 8_GREEN DEPLETED.png" id="6_b1xy4"]
+
+[sub_resource type="Resource" id="Resource_dn7q5"]
+script = ExtResource("2_4nadt")
+item = ExtResource("3_figow")
+min_quantity = 3
+max_quantity = 6
+metadata/_custom_type_script = "uid://bhrxnfsykmgnh"
+
+[sub_resource type="Resource" id="Resource_udmto"]
+script = ExtResource("2_4nadt")
+item = ExtResource("4_atuec")
+max_quantity = 2
+drop_chance = 10.0
+metadata/_custom_type_script = "uid://bhrxnfsykmgnh"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45t4r"]
+size = Vector2(21, 17)
+
+[node name="Tree" type="StaticBody2D" unique_id=1557699403]
+script = ExtResource("1_nbyt5")
+drops = Array[ExtResource("2_4nadt")]([SubResource("Resource_dn7q5"), SubResource("Resource_udmto")])
+healthy_texture = ExtResource("5_nesqh")
+depleted_texture = ExtResource("6_b1xy4")
+metadata/_custom_type_script = "uid://c7i8qqv1tdyd7"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=910467754]
+texture = ExtResource("5_nesqh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=531359693]
+position = Vector2(-2.5, 27.5)
+shape = SubResource("RectangleShape2D_45t4r")

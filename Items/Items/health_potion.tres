@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d3x60lq4aeljj"]
+
+[ext_resource type="Script" uid="uid://bwma4r5m2phul" path="res://item_data.gd" id="1_e7stj"]
+[ext_resource type="Texture2D" uid="uid://c6duv2imesn2a" path="res://Items/Items/health_potion.png" id="1_lt6l7"]
+
+[resource]
+script = ExtResource("1_e7stj")
+item_name = "Health Potion"
+icon = ExtResource("1_lt6l7")
+rarity = 1
+drop_chance = 20.0
+is_stackable = true
+max_stack = 3
+can_use = true
+stat_to_buff = "health"
+metadata/_custom_type_script = "uid://bwma4r5m2phul"

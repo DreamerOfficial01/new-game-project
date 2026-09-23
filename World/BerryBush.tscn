@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dslfvre3cxula"]
+
+[ext_resource type="Script" uid="uid://c7i8qqv1tdyd7" path="res://world_resource.gd" id="1_05uo4"]
+[ext_resource type="Resource" uid="uid://dr5lssjvj5kik" path="res://Items/Items/berry.tres" id="2_c0k4e"]
+[ext_resource type="Script" uid="uid://bhrxnfsykmgnh" path="res://DataComponents/drop_data.gd" id="2_nsxop"]
+[ext_resource type="Texture2D" uid="uid://d20hyug0tjmgr" path="res://World/bush.png" id="3_r5b8o"]
+
+[sub_resource type="Resource" id="Resource_r5b8o"]
+script = ExtResource("2_nsxop")
+item = ExtResource("2_c0k4e")
+min_quantity = 3
+max_quantity = 10
+metadata/_custom_type_script = "uid://bhrxnfsykmgnh"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vby3"]
+size = Vector2(40.746758, 13.149353)
+
+[node name="BerryBush" type="StaticBody2D" unique_id=295933568]
+script = ExtResource("1_05uo4")
+resource_name = "BerryBush"
+accepted_tool_types = Array[String]([])
+base_harvest_duration = 0.5
+drops = Array[ExtResource("2_nsxop")]([SubResource("Resource_r5b8o")])
+auto_produce_enabled = true
+auto_produce_item = ExtResource("2_c0k4e")
+auto_produce_interval = Vector2(1, 2)
+spawn_radius = 50.0
+healthy_texture = ExtResource("3_r5b8o")
+destroy_on_depleted = true
+metadata/_custom_type_script = "uid://c7i8qqv1tdyd7"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2112623081]
+scale = Vector2(0.119999945, 0.119999945)
+texture = ExtResource("3_r5b8o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1922468182]
+position = Vector2(-4.4999995, 87.5)
+scale = Vector2(6.159999, 6.159999)
+shape = SubResource("RectangleShape2D_1vby3")

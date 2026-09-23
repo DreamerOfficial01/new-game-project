@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://toqqv4rhsej5"]
+
+[ext_resource type="PackedScene" uid="uid://4pqund3nukl7" path="res://node_2d.tscn" id="1_u24d0"]
+[ext_resource type="PackedScene" uid="uid://cl5eaekxll7ek" path="res://World/tree.tscn" id="2_45t4r"]
+[ext_resource type="PackedScene" uid="uid://c8lda2vcmweq6" path="res://World/Rock.tscn" id="3_1vby3"]
+[ext_resource type="PackedScene" uid="uid://dslfvre3cxula" path="res://World/BerryBush.tscn" id="4_ctaxi"]
+
+[node name="MasterWorld" type="Node2D" unique_id=590352170]
+y_sort_enabled = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1148110055]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1782551141]
+
+[node name="Entities" type="Container" parent="." unique_id=610280724]
+y_sort_enabled = true
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player" parent="Entities" unique_id=1020872739 groups=["Player"] instance=ExtResource("1_u24d0")]
+
+[node name="Tree" parent="Entities" unique_id=1557699403 instance=ExtResource("2_45t4r")]
+position = Vector2(844, -421.00003)
+scale = Vector2(6, 6)
+
+[node name="Rock" parent="Entities" unique_id=518972216 instance=ExtResource("3_1vby3")]
+position = Vector2(-463, -595)
+
+[node name="BerryBush" parent="Entities" unique_id=295933568 instance=ExtResource("4_ctaxi")]
+position = Vector2(275, -777)

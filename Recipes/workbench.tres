@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" format=3 uid="uid://cwo2vhk4jm51l"]
+
+[ext_resource type="Script" uid="uid://hw8y3jxvnfuc" path="res://Items/recipe_ingredient.gd" id="1_cxl34"]
+[ext_resource type="Resource" uid="uid://cwd866xpfl5pv" path="res://Items/Items/apple.tres" id="2_0attr"]
+[ext_resource type="Script" uid="uid://7smydrd8dwnf" path="res://Items/crafting_recipe.gd" id="2_bj0ng"]
+[ext_resource type="Resource" uid="uid://tpciaexxw46w" path="res://Items/crafting_bench.tres" id="3_5jok4"]
+
+[sub_resource type="Resource" id="Resource_0attr"]
+script = ExtResource("1_cxl34")
+item = ExtResource("2_0attr")
+amount = 5
+metadata/_custom_type_script = "uid://hw8y3jxvnfuc"
+
+[resource]
+script = ExtResource("2_bj0ng")
+recipe_name = "Workbench"
+output_item = ExtResource("3_5jok4")
+ingredients = Array[ExtResource("1_cxl34")]([SubResource("Resource_0attr")])
+crafting_time = 5.0
+max_craft_amount = 10
+required_stations = Array[String](["Hand Crafting"])
+metadata/_custom_type_script = "uid://7smydrd8dwnf"

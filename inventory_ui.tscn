@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://cqf0iekbh4ckk"]
+
+[ext_resource type="Script" uid="uid://bkiay4iiqbh0h" path="res://inventory_ui.gd" id="1_5v8q7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ub8b"]
+bg_color = Color(0, 0, 0, 0.5882353)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5v8q7"]
+bg_color = Color(0.7358157, 7.2196127e-07, 0.38578197, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bopx"]
+bg_color = Color(0.7897727, 0.44701457, 0.06504415, 1)
+
+[node name="InventoryUI" type="Control" unique_id=876524868]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_5v8q7")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=180372653]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryBackground" type="PanelContainer" parent="CenterContainer" unique_id=1059737928]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ub8b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/InventoryBackground" unique_id=600872794]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/InventoryBackground/VBoxContainer" unique_id=1307016216]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="MainGrid" type="GridContainer" parent="CenterContainer/InventoryBackground/VBoxContainer/HBoxContainer" unique_id=1187568747]
+layout_mode = 2
+columns = 8
+
+[node name="Control" type="Control" parent="CenterContainer/InventoryBackground/VBoxContainer/HBoxContainer" unique_id=93780316]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="SideSlots" type="VBoxContainer" parent="CenterContainer/InventoryBackground/VBoxContainer/HBoxContainer" unique_id=10012259]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MainArea" type="HBoxContainer" parent="CenterContainer/InventoryBackground/VBoxContainer" unique_id=14962674]
+layout_mode = 2
+
+[node name="ContextMenu" type="PanelContainer" parent="." unique_id=1840648661]
+visible = false
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 100.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContextMenu" unique_id=1778576777]
+layout_mode = 2
+
+[node name="UseBtn" type="Button" parent="ContextMenu/VBoxContainer" unique_id=837931067]
+layout_mode = 2
+text = "Use"
+
+[node name="SplitBtn" type="Button" parent="ContextMenu/VBoxContainer" unique_id=1177806677]
+layout_mode = 2
+text = "Split"
+
+[node name="SplitSlider" type="HSlider" parent="ContextMenu/VBoxContainer" unique_id=1620380709]
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+
+[node name="SplitLabel" type="Label" parent="ContextMenu/VBoxContainer" unique_id=622486935]
+layout_mode = 2
+text = "Amount: 1"
+
+[node name="HotbarLayout" type="VBoxContainer" parent="." unique_id=1461409051]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -66.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="HBoxContainer" parent="HotbarLayout" unique_id=349763473]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="HotbarLayout/VBoxContainer" unique_id=777230789]
+custom_minimum_size = Vector2(150, 16)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_5v8q7")
+
+[node name="HungerBar" type="ProgressBar" parent="HotbarLayout/VBoxContainer" unique_id=1751216241]
+custom_minimum_size = Vector2(150, 16)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_5bopx")
+
+[node name="HotbarGrid" type="GridContainer" parent="HotbarLayout" unique_id=494251769]
+propagate_maximum_size = false
+layout_mode = 2
+theme_override_constants/h_separation = 3
+columns = 8
+
+[node name="StatsContainer" type="HBoxContainer" parent="HotbarLayout" unique_id=1859049902]
+layout_mode = 2

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cha2uj3uunmai"]
+
+[ext_resource type="Script" uid="uid://bwma4r5m2phul" path="res://item_data.gd" id="1_0g32n"]
+[ext_resource type="Texture2D" uid="uid://bgakscrw1erpm" path="res://Items/Items/eye_handed copy.png" id="1_5k7kr"]
+
+[resource]
+script = ExtResource("1_0g32n")
+item_name = "Mana Potion"
+icon = ExtResource("1_5k7kr")
+rarity = 4
+is_stackable = true
+max_stack = 2
+can_use = true
+buff_amount = 10.0
+metadata/_custom_type_script = "uid://bwma4r5m2phul"

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://csog1krxkjy1d"]
+
+[ext_resource type="Script" uid="uid://cb7oy5quskhfr" path="res://LootNotifier_script.gd" id="1_b7rxb"]
+[ext_resource type="FontFile" uid="uid://dybc4owfo87u0" path="res://PixelifySans-VariableFont_wght.ttf" id="2_lh58s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lt6l7"]
+font = ExtResource("2_lh58s")
+font_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LootNotifier" type="Marker2D" unique_id=481079195]
+script = ExtResource("1_b7rxb")
+
+[node name="Label" type="Label" parent="." unique_id=1229416134]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_lt6l7")
+horizontal_alignment = 1
+vertical_alignment = 1
