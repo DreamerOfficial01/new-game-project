@@ -1,6 +1,6 @@
 extends StaticBody2D
 class_name WorldResource
-
+var active_spawns: Array[Node] = []
 @export_group("Resource Identity")
 @export var resource_name: String = "Tree"
 
@@ -58,19 +58,12 @@ func _process(delta: float) -> void:
 func get_unique_spawner_id() -> String:
 	return str(get_path())
 
+# --- OPTIMIZED: No longer scans the entire world ---
+# --- OPTIMIZED: No longer scans the entire world ---
 func get_spawned_count_for_this_bush() -> int:
-	var count = 0
-	var entities = get_tree().current_scene.get_node_or_null("Entities")
-	if not entities: return 0
-	
-	var my_id = get_unique_spawner_id()
-	var target_path = auto_produce_item.resource_path if auto_produce_item else ""
-	
-	for child in entities.get_children():
-		if child is PickupItem and child.item_data:
-			if child.item_data.resource_path == target_path and child.spawner_id == my_id:
-				count += child.amount
-	return count
+	# Clean the array of any berries the player already picked up
+	active_spawns = active_spawns.filter(func(item): return is_instance_valid(item) and not item.is_queued_for_deletion())
+	return active_spawns.size()
 
 func reset_auto_timer() -> void:
 	current_auto_interval = randf_range(auto_produce_interval.x, auto_produce_interval.y)
@@ -153,6 +146,9 @@ func attempt_spawn(item: ItemData, qty: int) -> void:
 		entities_layer.add_child(inst)
 	else:
 		get_tree().current_scene.add_child(inst)
+		
+	# OPTIMIZATION: Track the berry directly so we don't have to search the world for it later
+	active_spawns.append(inst)
 
 func get_custom_save_data() -> Dictionary:
 	return {

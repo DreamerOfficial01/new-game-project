@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var tab_container = $TabContainer
-
+var is_confirming_delete: bool = false
 # Added "TabContainer/" to these two paths so it looks in the right folder!
 @onready var settings_vbox = $TabContainer/Settings/VBoxContainer
 @onready var fps_dropdown = $TabContainer/Settings/VBoxContainer/HBoxContainer/OptionButton
@@ -90,3 +90,34 @@ func _on_volume_changed(val: float, bus_name: String, slider: HSlider, spinbox: 
 	# 2. Convert the UI's 0-100 scale back to the engine's 0.0-1.0 scale
 	GameManager.current_settings["volumes"][bus_name] = val / 100.0
 	GameManager.apply_loaded_settings()
+
+
+# --- Add these to your pause_menu.gd ---
+
+# --- The "Hard Relaunch" Restart ---
+func _on_restart_button_pressed() -> void:
+	# OS.create_instance launches a brand new executable/window of your game
+	OS.create_instance(OS.get_cmdline_args())
+	# get_tree().quit() kills the current window
+	get_tree().quit()
+
+
+# --- The Safety Lock Delete ---
+func _on_delete_save_button_pressed() -> void:
+	if not is_confirming_delete:
+		# FIRST CLICK: Ask for confirmation
+		is_confirming_delete = true
+		%DeleteSaveButton.text = "Are you sure?"
+		
+		# Optional polish: Reset the button back to normal if they don't click it within 3 seconds
+		await get_tree().create_timer(3.0).timeout
+		is_confirming_delete = false
+		%DeleteSaveButton.text = "Delete Save Game"
+		
+	else:
+		# SECOND CLICK: Nuke the save and hard restart the game
+		if GameManager.has_method("delete_save_file"):
+			GameManager.delete_save_file()
+			
+		#OS.create_instance(OS.get_cmdline_args())
+		#get_tree().quit()

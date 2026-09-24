@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cy0640sifhn5v"]
+
+[ext_resource type="PackedScene" uid="uid://bvt78ksndhg6e" path="res://Enemies/BaseEnemy.tscn" id="1_8thdp"]
+[ext_resource type="Texture2D" uid="uid://dbs0cew32my6d" path="res://Idle.png" id="2_6occn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq8ey"]
+atlas = ExtResource("2_6occn")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_matev"]
+atlas = ExtResource("2_6occn")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asmuy"]
+atlas = ExtResource("2_6occn")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4t3d"]
+atlas = ExtResource("2_6occn")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv27w"]
+atlas = ExtResource("2_6occn")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6prr3"]
+atlas = ExtResource("2_6occn")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rwavt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq8ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_matev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asmuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4t3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv27w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6prr3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e0ogk"]
+radius = 21.023796
+
+[node name="Zombie" unique_id=856863130 instance=ExtResource("1_8thdp")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1051391100]
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_rwavt")
+frame_progress = 0.15859486
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1901040301]
+position = Vector2(0, -1)
+scale = Vector2(1, 0.23999941)
+shape = SubResource("CircleShape2D_e0ogk")

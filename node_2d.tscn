@@ -329,6 +329,9 @@ size = Vector2(26.833336, 13)
 [sub_resource type="CircleShape2D" id="CircleShape2D_kgtat"]
 radius = 135.25
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_abukt"]
+radius = 40.0
+
 [node name="Node2D" type="Node2D" unique_id=1020872739]
 y_sort_enabled = true
 position = Vector2(1, 0)
@@ -392,6 +395,12 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.6100001, 0.44822925)
 show_percentage = false
+
+[node name="WeaponHitbox" type="Area2D" parent="Player" unique_id=470318443]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/WeaponHitbox" unique_id=1015923298]
+shape = SubResource("CircleShape2D_abukt")
+disabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1749457995]
 

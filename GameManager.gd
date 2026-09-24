@@ -169,3 +169,12 @@ func load_game():
 		print("All world objects restored successfully!")
 		
 	is_loading_from_file = false
+# Add this to the bottom of GameManager.gd
+func delete_save_file() -> void:
+	var save_path = "user://savegame.save" # Adjust if you named your save file differently
+	if FileAccess.file_exists(save_path):
+		var dir = DirAccess.open("user://")
+		dir.remove("savegame.save")
+		print("Save file deleted successfully.")
+	else:
+		print("No save file found to delete.")

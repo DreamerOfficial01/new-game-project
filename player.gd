@@ -107,7 +107,7 @@ func _unhandled_input(event):
 		#var possible_loot = ["apple", "apple", "sword" , "health_potion"] 
 		
 		# Call the manager: Try to drop from the pool, but drop a MAXIMUM of 2 items
-		ItemManager.drop_from_table("goblin_loot", drop_position)
+		#ItemManager.drop_from_table("goblin_loot", drop_position)
 		#ItemManager.call("drop_from_table", "goblin_loot", global_position)
 	# PLACE ITEM LOGIC
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
