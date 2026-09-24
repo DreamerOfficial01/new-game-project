@@ -2,6 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bvt78ksndhg6e" path="res://Enemies/BaseEnemy.tscn" id="1_8thdp"]
 [ext_resource type="Texture2D" uid="uid://dbs0cew32my6d" path="res://Idle.png" id="2_6occn"]
+[ext_resource type="Script" uid="uid://bhrxnfsykmgnh" path="res://DataComponents/drop_data.gd" id="2_matev"]
+[ext_resource type="Resource" uid="uid://bny4p2qv6qvyb" path="res://Items/Items/axe.tres" id="3_asmuy"]
+
+[sub_resource type="Resource" id="Resource_hqns4"]
+script = ExtResource("2_matev")
+item = ExtResource("3_asmuy")
+metadata/_custom_type_script = "uid://bhrxnfsykmgnh"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eq8ey"]
 atlas = ExtResource("2_6occn")
@@ -57,13 +64,16 @@ animations = [{
 radius = 21.023796
 
 [node name="Zombie" unique_id=856863130 instance=ExtResource("1_8thdp")]
+scale = Vector2(6, 6)
+attack_range = 100.0
+drops = Array[ExtResource("2_matev")]([SubResource("Resource_hqns4")])
 
 [node name="Sprite2D" parent="." index="0" unique_id=1051391100]
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_rwavt")
-frame_progress = 0.15859486
+frame_progress = 0.19728729
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1901040301]
-position = Vector2(0, -1)
-scale = Vector2(1, 0.23999941)
+position = Vector2(-0.49999997, -30.833332)
+scale = Vector2(1.0576923, -2.0070927)
 shape = SubResource("CircleShape2D_e0ogk")

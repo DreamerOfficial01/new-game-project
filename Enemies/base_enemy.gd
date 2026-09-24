@@ -1,6 +1,6 @@
 extends CharacterBody2D
 class_name BaseEnemy
-
+var knockback: Vector2 = Vector2.ZERO
 @export_category("Identity")
 @export var enemy_name: String = "Monster"
 
@@ -29,54 +29,68 @@ func _ready():
 	add_to_group("persist")
 	current_health = max_health
 
-func _physics_process(_delta):
+# --- UPDATE YOUR _physics_process ---
+func _physics_process(delta):
 	if not player:
 		player = get_tree().get_first_node_in_group("player")
 		return
 		
+	# --- NEW: Handle Knockback ---
+	if knockback != Vector2.ZERO:
+		velocity = knockback
+		knockback = knockback.move_toward(Vector2.ZERO, 1500 * delta)
+		move_and_slide()
+		return # Skip chasing logic while being pushed back
+		
 	var dist = global_position.distance_to(player.global_position)
 	
-	# Chase Player
 	if dist < detection_radius and dist > attack_range:
 		velocity = global_position.direction_to(player.global_position) * move_speed
 		move_and_slide()
 		if sprite:
 			sprite.flip_h = velocity.x < 0
 			
-	# Attack Player
 	elif dist <= attack_range:
 		velocity = Vector2.ZERO
 		if can_attack:
 			attack_player()
-
+			
 func attack_player() -> void:
 	can_attack = false
+	
+	# Calculate the push direction
+	var dir_to_player = global_position.direction_to(player.global_position)
 	
 	# Small lunge animation
 	if sprite:
 		var tween = create_tween()
 		var original_pos = sprite.position
-		var lunge_dir = global_position.direction_to(player.global_position) * 5.0
+		var lunge_dir = dir_to_player * 10.0
 		tween.tween_property(sprite, "position", original_pos + lunge_dir, 0.1)
 		tween.tween_property(sprite, "position", original_pos, 0.1)
 	
+	# Deal damage and push the player back!
 	if player and player.has_method("take_damage"):
-		player.take_damage(damage_to_player)
+		player.take_damage(damage_to_player, dir_to_player)
 		
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
-
-func take_damage(amount: int) -> void:
+	
+# --- UPDATE YOUR take_damage ---
+func take_damage(amount: int, knockback_dir: Vector2 = Vector2.ZERO) -> void:
 	current_health -= amount
 	
 	if sprite:
 		var tween = create_tween()
-		sprite.modulate = Color(3, 0, 0, 1) # Flash intense red
+		sprite.modulate = Color(3, 0, 0, 1)
 		tween.tween_property(sprite, "modulate", Color(1, 1, 1, 1), 0.2)
+		
+	if knockback_dir != Vector2.ZERO:
+		# Apply brute force to the enemy!
+		knockback = knockback_dir * 500.0
 	
 	if current_health <= 0:
 		die()
-
 func die() -> void:
 	for drop in drops:
 		if randf() * 100.0 <= drop.drop_chance:

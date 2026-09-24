@@ -10,4 +10,5 @@ item_name = "IronSowrd"
 icon = ExtResource("1_wghkx")
 rarity = 3
 drop_chance = 30.0
+attack_damage = 10
 metadata/_custom_type_script = "uid://bwma4r5m2phul"

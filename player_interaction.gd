@@ -25,11 +25,21 @@ func _process(delta: float) -> void:
 			progress_bar.hide()
 			progress_bar.value = 0.0
 
-	# --- NEW: Combat Logic ---
+	# --- FIXED: Combat Logic (Now works with ANY tool that has power) ---
+	# --- FIXED ATTACK TRIGGER ---
 	if Input.is_action_just_pressed("attack") and not is_interacting and not is_attacking:
 		var active_item = get_active_item()
-		if active_item and active_item.tool_data and active_item.tool_data.tool_type == "Sword":
-			perform_attack(active_item.tool_data.power)
+		if active_item:
+			# 1. First, check if the item uses your custom 'attack_damage' stat from the Inspector
+			if "attack_damage" in active_item and active_item.attack_damage > 0:
+				perform_attack(active_item.attack_damage)
+			# 2. Fallback: Check if it uses the old ToolData system (like for your axe)
+			elif active_item.tool_data and active_item.tool_data.power > 0:
+				perform_attack(active_item.tool_data.power)
+			else:
+				print("WARNING: This item has no ToolData or its Attack Damage is 0!")
+
+
 
 	if not is_interacting:
 		var overlapping: Array = [] 
@@ -77,27 +87,45 @@ func _process(delta: float) -> void:
 				progress_bar.hide()
 				progress_bar.value = 0.0
 
-# --- NEW: Attack Execution ---
+# --- FIXED: Attack Execution ---
+# --- NEW: MATHEMATICAL ATTACK CONE ---
+# --- PERMANENT RADAR CONE ATTACK ---
+# --- FIXED: Pure Hitbox Attack (No Math Required) ---
+# --- TRULY FIXED: Pure Hitbox Attack (Absolutely No Math) ---
+# --- THE BULLETPROOF ATTACK (NO AREA2D NEEDED) ---
+# --- THE GIANT SLAYER ATTACK ---
+# --- THE TRUE GIANT SLAYER ATTACK ---
+# --- THE SMART GIANT SLAYER ATTACK ---
 func perform_attack(damage: int) -> void:
 	is_attacking = true
+	var hit_something = false
 	
-	if weapon_shape:
-		weapon_shape.disabled = false
+	var mouse_pos = get_global_mouse_position()
+	# Direction the player is aiming
+	var attack_dir = global_position.direction_to(mouse_pos)
+	
+	var all_enemies = get_tree().get_nodes_in_group("enemy")
+	
+	for enemy in all_enemies:
+		var dist = global_position.distance_to(enemy.global_position)
+		var dir_to_enemy = global_position.direction_to(enemy.global_position)
 		
-	# Scan for enemies inside the hitbox
-	if weapon_hitbox:
-		var targets = weapon_hitbox.get_overlapping_bodies()
-		for target in targets:
-			if target.is_in_group("enemy") and target.has_method("take_damage"):
-				target.take_damage(damage)
+		# 1. INCREASED RANGE: 250.0 easily reaches the tall Zombie's feet
+		if dist <= 250.0:
+			
+			# 2. AIMING CHECK: Dot product > 0 means the enemy is in front of you!
+			if attack_dir.dot(dir_to_enemy) > 0.0:
 				
-	# Keep the hitbox active for 0.2 seconds (the length of a swing)
+				if enemy.has_method("take_damage"):
+					enemy.take_damage(damage, attack_dir)
+					hit_something = true
+				
+	if hit_something:
+		print("SMACK! Dealt ", damage, " damage!")
+	else:
+		print("Swung sword, but no enemies were in front of you.")
+					
 	await get_tree().create_timer(0.2).timeout
-	
-	if weapon_shape:
-		weapon_shape.disabled = true
-	
-	# Cooldown before you can swing again
 	await get_tree().create_timer(0.3).timeout
 	is_attacking = false
 

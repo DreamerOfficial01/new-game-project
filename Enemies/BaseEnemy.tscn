@@ -4,6 +4,7 @@
 
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=856863130]
 script = ExtResource("1_rwavt")
+attack_range = 50.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1051391100]
 
