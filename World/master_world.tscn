@@ -5,13 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c8lda2vcmweq6" path="res://World/Rock.tscn" id="3_1vby3"]
 [ext_resource type="PackedScene" uid="uid://dslfvre3cxula" path="res://World/BerryBush.tscn" id="4_ctaxi"]
 [ext_resource type="PackedScene" uid="uid://cy0640sifhn5v" path="res://Enemies/Zombie.tscn" id="5_0nc7t"]
-[ext_resource type="Script" uid="uid://bhrxnfsykmgnh" path="res://DataComponents/drop_data.gd" id="6_48dk5"]
-[ext_resource type="Resource" uid="uid://d1vsmo3rtohap" path="res://Items/Items/WoodWallItem.tres" id="7_48dk5"]
-
-[sub_resource type="Resource" id="Resource_6occn"]
-script = ExtResource("6_48dk5")
-item = ExtResource("7_48dk5")
-metadata/_custom_type_script = "uid://bhrxnfsykmgnh"
+[ext_resource type="PackedScene" uid="uid://di5i2gs5ua6e2" path="res://Enemies/EnemySpawner.tscn" id="5_38iwo"]
 
 [node name="MasterWorld" type="Node2D" unique_id=590352170]
 y_sort_enabled = true
@@ -61,10 +55,8 @@ scale = Vector2(6, 6)
 position = Vector2(-903, 192)
 scale = Vector2(6, 6)
 
-[node name="Zombie" parent="Entities" unique_id=856863130 instance=ExtResource("5_0nc7t")]
-position = Vector2(690, -1118)
-scale = Vector2(4, 4)
-move_speed = 30.0
-detection_radius = 500.0
-attack_range = 30.0
-drops = Array[ExtResource("6_48dk5")]([SubResource("Resource_6occn")])
+[node name="EnemySpawner" parent="Entities" unique_id=1650714277 instance=ExtResource("5_38iwo")]
+position = Vector2(816, -1440)
+enemy_scene = ExtResource("5_0nc7t")
+spawn_interval = 5.0
+spawn_radius = 300.0
